@@ -1,0 +1,76 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script> 
+
+<script>
+  
+ var Config = {
+   apiKey: "AIzaSyBa6FerLwCTnUckGMQP7Ti4TQuD-jvRSgo",
+    authDomain: "libraria-admin.firebaseapp.com",
+    databaseURL: "https://libraria-admin.firebaseio.com",
+    projectId: "libraria-admin",
+    storageBucket: "libraria-admin.appspot.com",
+    messagingSenderId: "673254415613",
+    appId: "1:673254415613:web:4e6211e15104b0ffe87294",
+    measurementId: "G-99K7H5SERP"
+  };
+  firebase.initializeApp(Config);
+</script>
+<body>
+      
+
+                                <input type="text" id="pass1" name="full_name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'"
+                                 >
+                            
+
+                                <input type="text" id="pass2" name="useremail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"
+                                 >
+                            
+
+                                <input type="text" id="pass3"  name="massage" placeholder="Massage" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Massage'"
+                                 >
+                            
+
+<button onclick="submit()" class="btn_1">Submit</button> 
+
+
+
+  </body>
+
+<script>
+
+var database = firebase.database();
+
+var n, d,t ;
+var ref = firebase.database().ref("/contact");
+function submit() {
+if (pass1.value && pass2.value && pass3.value )
+ {
+n=pass1.value;
+    d=pass2.value;
+    t=pass3.value;
+    
+
+
+document.getElementById("pass1").value = "" ;
+document.getElementById("pass2").value = "" ;
+document.getElementById("pass3").value = "" ; 
+  alert("Thanks for filling out our form!We will look over your message and get back to you shortly.");
+  
+    firebase.database().ref("/contact").push({ 
+
+       name:n,
+       email:d, 
+       massage:t
+}).key;
+
+}}
+
+
+</script>
+

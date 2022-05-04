@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Contact form data | MBM E-LEARNING</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+<link REL="SHORTCUT ICON" HREF="https://www.mbm.ac.in/assets/img/logo.png">
+<meta name=”robots” content=”noindex, nofollow”> 
+<meta name=”robots” content=”index, follow”> 
+<link href="styles/style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script> 
+<script src="scripts/index.js"></script>
+
+</head>
+<body >
+<header class="headdiv">
+<div >
+<a href="#">
+<div><h1 class="headtitle">MBM E-LEARNING</h1></div></a>
+</div>
+</header>
+    
+    
+   
+  <center>
+<h1>Contact List</h1>
+  <script> 
+      var Config = { 
+apiKey: "AIzaSyBa6FerLwCTnUckGMQP7Ti4TQuD-jvRSgo", 
+authDomain: "libraria-admin.firebaseapp.com", 
+databaseURL: "https://libraria-admin.firebaseio.com", 
+projectId: "libraria-admin", 
+storageBucket: "libraria-admin.appspot.com", 
+messagingSenderId: "673254415613", 
+appId: "1:673254415613:web:4e6211e15104b0ffe87294", 
+measurementId: "G-99K7H5SERP" }; 
+firebase.initializeApp(Config);
+</script>
+
+<script> 
+    var ref = firebase.database().ref().child('contact'); 
+    ref.on("child_added", function(data) { 
+				var una1 = data.val(); 
+				var una2 = data.val(); 
+				var una3 = data.val();
+
+				listview11.innerHTML = document.getElementById("listview11").innerHTML + "<ul class=\"ulcl\"> <li class=\"country\"><h3>" + una1.name + "</h3> </li> <li class=\"app\"> Email :" + una2.email + "</li> <li class=\"app\"> Massage :" + una3.massage + "</li> </ul> <hr class=\"hrclass\">" },
+function(error) { alert(error.code) });
+</script>
+
+      <div id="listview11"></div>
+
+</center>
+  
+   
+    
+    
+    
+    
+<footer class="footerdiv"> 
+<div class="container"> 
+<h3>Developed by </h3>
+<p> 
+<a class="btn_2" href="https://www.linkedin.com/in/lkrjangid">Lokesh Jangid</a> | 
+<a class="btn_2" href="https://www.linkedin.com/in/kashish-agrawal-a814161aa">Kashish Agrawal</a> | 
+<a class="btn_2" href="https://www.linkedin.com/in/kapil-gupta-b991b511b">Kapil Gupta</a> 
+</p> 
+</div>
+ <div class="footer-bottom"><p class="footer-text m-0">
+ &copy;<script>document.write(new Date().getFullYear());</script>
+                                    
+   <i class="ti-heart" aria-hidden="true"></i>
+ All rights reserved </p> </div>
+</footer>
+</body>
+
+</html>    
+    

@@ -1,0 +1,50 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script> 
+
+<script>
+  var Config = {
+    apiKey: "AIzaSyBa6FerLwCTnUckGMQP7Ti4TQuD-jvRSgo",
+    authDomain: "libraria-admin.firebaseapp.com",
+    databaseURL: "https://libraria-admin.firebaseio.com",
+    projectId: "libraria-admin",
+    storageBucket: "libraria-admin.appspot.com",
+    messagingSenderId: "673254415613",
+    appId: "1:673254415613:web:4e6211e15104b0ffe87294",
+    measurementId: "G-99K7H5SERP"
+  };
+  firebase.initializeApp(Config);
+
+</script>
+
+
+<script>
+
+
+
+var ref = firebase.database().ref().child('contact');
+ref.on("child_added" , function(data) {
+var una1 = data.val();
+var una2 = data.val();
+var una3 = data.val();
+
+
+listview11.innerHTML =document.getElementById("listview11").innerHTML + "<ul class=\"ulcl\"> <li class=\"country\"><h3>" + una1.name +
+                "</h3> </li> <hr class=\"hrclass\"> <li class=\"app\"> Email :"  + una2.email  +  "</li> <li class=\"app\">  Massage :" + una3.massage + "</li> </ul>"},
+
+function(error) 
+{
+alert(error.code)
+});
+
+
+</script>
+                                                                  
+<div id="listview11"></div>
+     
+         
+

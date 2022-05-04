@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <title>Hello, World!</title>
+    </head>
+    <body>
+     <button  onclick="one()">one page</button>   
+      <button  onclick="two()">two page</button> 
+        
+        
+        
+        <div id="onepage">
+           <p>This is first page</p> 
+              <iframe src="https://electricalanswers.files.wordpress.com/2014/09/a-textbook-of-electrical-technology-volume-i-basic-electrical-engineering-b-l-theraja.pdf" width="300" height="300" frameBorder="0">Browser not compatible.</iframe>
+            
+        </div>
+        
+        <div id="twopage">
+           <p>This is second page</p> 
+            
+              </div>
+        
+        
+        
+    </body>
+</html>
+<script >
+    document.getElementById("onepage").style.display = "block";
+    
+    //here block mean show this div
+    
+    document.getElementById("twopage").style.display = "none";
+  
+    //here none mean hide this div
+    
+    function one(){
+    document.getElementById("onepage").style.display = "block";
+    document.getElementById("twopage").style.display = "none";
+    }
+    
+    
+    function two(){
+    document.getElementById("twopage").style.display = "block";
+    document.getElementById("onepage").style.display = "none";
+    }
+    
+</script>

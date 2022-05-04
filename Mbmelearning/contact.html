@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Contact | MBM E-LEARNING</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+<link REL="SHORTCUT ICON" HREF="https://www.mbm.ac.in/assets/img/logo.png">
+<meta name=”robots” content=”noindex, nofollow”> 
+<meta name=”robots” content=”index, follow”> 
+<link href="styles/style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script> 
+<script src="https://kit.fontawesome.com/a6dc36c0ac.js" crossorigin="anonymous"></script>
+
+</head>
+<body >
+<header class="headdiv">
+<div >
+<a href="#">
+<div><h1 class="headtitle">MBM E-LEARNING</h1></div></a>
+</div>
+</header>
+    
+    
+   
+  <center>
+    <div class="contact_heading"> 
+        <h1>Developers</h1> 
+        <hr>
+    
+    </div>
+<div class="developers_area">
+<div class="developer"> 
+        
+        <div class="developer_image"> 
+            
+            <img src="https://mbmlibraria.herokuapp.com/images/lokesh.jpg" alt=""> 
+            
+        </div> <div class="developer_detail">
+            
+            <h4>Lokesh Jangid</h4> <p>lkrjangid@gmail.com</p> 
+            
+            <a href="https://www.linkedin.com/in/lkrjangid"> <i class="fab fa-linkedin fa-2x"></i> 
+                
+            </a> </div> </div> <div class="developer">
+                
+                <div class="developer_image"> 
+                    
+                    <img src="https://media-exp1.licdn.com/dms/image/C4E03AQE2g-TZ4wPN3g/profile-displayphoto-shrink_400_400/0?e=1611792000&v=beta&t=-bjpphWySc-sCCBEkfZwOCIJfJz2kxwJLQ15nF61yo8" alt=""> </div> 
+                
+                <div class="developer_detail"> <h4>Kashish Agrawal</h4>
+                    
+                    <p>kashishagrawal0005@gmail.com</p> 
+                    
+                    <a href="https://www.linkedin.com/in/kashish-agrawal-a814161aa"> 
+                        
+                        <i class="fab fa-linkedin fa-2x"> </i> </a> 
+                    
+                </div> </div> <div class="developer">
+                    
+                    <div class="developer_image"> 
+                        
+                        <img src="https://mbmlibraria.herokuapp.com/images/kapil.jpg" alt=""> 
+                        
+                    </div> <div class="developer_detail"> 
+                        
+                        <h4>Kapil Gupta</h4> <p>guptakapil24000@gmail.com</p>
+                        
+                        <a href="https://www.linkedin.com/in/kapil-gupta-b991b511b"> 
+                            
+                            <i class="fab fa-linkedin fa-2x"></i> </a> </div> 
+                    
+    </div>
+</div>
+</div>
+
+    
+    <div class="contact_heading"> 
+        <h1>Contact us</h1> 
+        <hr>
+    
+    </div>
+   
+    <input type="email" class="formlg" id="pass2" name="useremail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+
+    
+    <input type="text" class="formlg" id="pass1" name="full_name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'">
+
+    <textarea class="formlg1" id="pass3" name="massage" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" rows="3"></textarea>
+
+    <button onclick="submit()" class="btn_3">Submit</button>
+
+
+
+
+
+
+
+</center>
+
+<script>
+    var Config = { 
+apiKey: "AIzaSyDjH7OD2pCE6dKEZjdd443IpIvVQ2I7rCQ",
+  authDomain: "chatweb-78998.firebaseapp.com",
+  databaseURL: "https://chatweb-78998.firebaseio.com",
+  projectId: "chatweb-78998",
+  storageBucket: "chatweb-78998.appspot.com",
+  messagingSenderId: "777186925861",
+  appId: "1:777186925861:web:e7f0d9f79daff0b3dd4ecc",
+  measurementId: "G-N1Y93CYKD9"};
+firebase.initializeApp(Config);
+
+    var database = firebase.database();
+var n, d, t; 
+    var ref = firebase.database().ref("/contact");
+function submit() { 
+if (pass1.value && pass2.value && pass3.value) { 
+n = pass1.value; d = pass2.value; t = pass3.value;
+
+
+document.getElementById("pass1").value = ""; 
+document.getElementById("pass2").value = ""; 
+document.getElementById("pass3").value = ""; 
+alert("Thanks for filling out our form! We will look over your message and get back to you shortly.");
+firebase.database().ref("/contact").push({
+name: n, email: d, massage: t }).key;
+}
+else{
+alert("please fill all details");
+
+}
+ }</script>
+
+
+  
+   
+    
+    
+    
+    
+<footer class="footerdiv"> 
+<div class="container"> 
+<h3>Developed by </h3>
+<p> 
+<a class="btn_2" href="https://www.linkedin.com/in/lkrjangid">Lokesh Jangid</a> | 
+<a class="btn_2" href="https://www.linkedin.com/in/kashish-agrawal-a814161aa">Kashish Agrawal</a> | 
+<a class="btn_2" href="https://www.linkedin.com/in/kapil-gupta-b991b511b">Kapil Gupta</a> 
+</p> 
+</div>
+ <div class="footer-bottom"><p class="footer-text m-0">
+ &copy;<script>document.write(new Date().getFullYear());</script>
+                                    
+   <i class="ti-heart" aria-hidden="true"></i>
+ All rights reserved </p> </div>
+</footer>
+</body>
+
+</html>    
+    

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <title>Hello, World!</title>
+        
+        <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script >
+	var config = {
+                apiKey: "AIzaSyAP4dEWtMaELtKi_qa5Kirora4qHk6N7m0",
+    authDomain: "libraria-35b94.firebaseapp.com",
+    databaseURL: "https://libraria-35b94.firebaseio.com",
+    projectId: "libraria-35b94",
+    storageBucket: "libraria-35b94.appspot.com",
+    messagingSenderId: "860113814560",
+    appId: "1:860113814560:web:76cedda5927beaf2186845",
+    measurementId: "G-6T91JYFLD6"
+              };
+              firebase.initializeApp(config);
+             firebase.auth().onAuthStateChanged
+      (firebaseUser =>{
+            if(firebaseUser){
+            
+    
+            }
+            else{
+            
+     window.location = "https://mbmec.weebly.com"
+            }
+            
+        }
+    )
+    
+	function logout(){
+  //firebase.auth().signOut().then(function() {
+  //errm("successful sign out","#4AC75F");
+  window.location = "https://mbmec.weebly.com"
+//}).catch(function(error) {
+  //errm(error.message);
+   
+//});
+  
+}
+    
+    
+    
+    
+	</script>
+        
+    </head>
+    <body>
+      <a onclick="logout()" href="#">Logout</a>
+    </body>
+</html>

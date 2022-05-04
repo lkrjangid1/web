@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>firebase auth app 🔥</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/bcdd295c42.js" crossorigin="anonymous" defer></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCnPQhZc10UQ2dp8ulZfziZPlbH3j08qDw",
+    authDomain: "experiences-277716.firebaseapp.com",
+    databaseURL: "https://experiences-277716.firebaseio.com",
+    projectId: "experiences-277716",
+    storageBucket: "experiences-277716.appspot.com",
+    messagingSenderId: "‪948618063775‬",
+    appId: "1:‪948618063775‬:web:fd9162aed5d2065c3f57aa"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<style>
+  button {
+    border:solid blue 3px;
+    border-radius: 10px;
+    color:white;
+    background-color:blue;
+  }
+.google {
+    border:solid red 3px;
+    border-radius: 10px;
+    color:white;
+    background-color:red;
+}
+</style>
+</head>
+<body align="center">
+  <h1 align="center">simple signin app</h1><br><br>
+<div id="auth"align="center">
+  <input type="email"class="form-control"id="email"placeholder="email:">
+  <br><br>
+  <input type="password"class="form-control"id="password"placeholder="password:">
+  <br><br>
+  <label for="isnewuser">new user ?</label>
+  <input type="checkbox"id="isnewuser">
+  <br><br>
+  <button onclick="sign_in()"class="btn btn-primary">sign-in</button>
+  <br><br>
+  <button onclick="sign_in_with_google()"class="google btn"><i class="fab fa-google"></i> sign-in with google</button>
+  </div>
+  <div id="signedin"style="display:none;"align="center">
+    <img id="userimg"class="img-fluid"><br>
+    <h3 id="userdisplay"></h3><br>
+    <p>email: <span id="maildisplay"></span></p><br><br>
+  <button class="btn btn-primary"id="signout"onclick="sign_out()">Sign-Out</button><br>
+</div>
+  <script>
+    var provider = new firebase.auth.GoogleAuthProvider();
+      function sign_in() {
+          var email = $("#email").val()
+          var password = $("#password").val()
+          var IsNewUser = $("#isnewuser").val()
+          if(IsNewUser) {
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            Swal.fire(errorMessage + " " + errorCode)
+         });
+         $("#auth").hide()
+         $("#signedin").show()
+         $("#userdisplay").text('user')
+         $("#maildisplay").text(email)
+         $("#userimg").attr('src','http://simpleicon.com/wp-content/uploads/user1-64x64.png')
+        }else{
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            Swal.fire(errorMessage + " " + errorCode)
+         });
+         $("#auth").hide()
+         $("#signedin").show()
+         $("#userdisplay").text('user')
+         $("#maildisplay").text(email)
+         $("#userimg").attr('src','http://simpleicon.com/wp-content/uploads/user1-64x64.png')
+        }
+      }
+      function sign_in_with_google() { 
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            $("#auth").hide()
+            $("#signedin").show()
+            $("#userdisplay").text(user.providerData[0].displayName)
+            $("#maildisplay").text(user.providerData[0].email)
+            $("#userimg").attr('src',user.providerData[0].photoURL)
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var errEmail = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            Swal.fire(errorMessage + " " + errorCode)
+        });
+      }
+      function sign_out(params) {
+        firebase.auth().signOut().then(function() {
+            $("#auth").show()
+            $("#signedin").hide()
+        }).catch(function(error) {
+          Swal.fire(error)
+      });
+      }
+  </script>
+</body>
+</html>
